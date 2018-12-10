@@ -1,0 +1,29 @@
+
+spring:
+  application:
+    name: main-service
+
+server:
+  port: 8700
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+#    server:
+#      waitTimeInMsWhenSyncEmpty: 0
+      
+zuul:
+  prefix: /api
+  routes:
+    db-service:
+      path: /db-service/**
+      url: http://localhost:8701
+    product-service:
+      path: /product-service/**
+      url: http://localhost:8702
+    customer-service:
+      path: /customer-service/**
+      url: http://localhost:8703
