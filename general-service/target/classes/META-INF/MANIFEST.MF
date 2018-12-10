@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: allah.rakha
+Build-Jdk: 10.0.1
+Implementation-Title: general-service
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.helptree
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/general-service
+Created-By: Maven Integration for Eclipse
+
