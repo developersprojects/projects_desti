@@ -34,12 +34,12 @@ public class GeneralServiceImpl implements GeneralService{
 
 	@Override
 	public UserMasterDto registerUser(UserMasterDto userMaster) {
-		
-		return restTemplate.exchange("http://db-service/rest/user/add", HttpMethod.POST, null,
+		UserMasterDto udt=restTemplate.exchange("http://db-service/rest/user/add", HttpMethod.POST, null,
 				new ParameterizedTypeReference<UserMasterDto>() {
 				}).getBody();
 		
-		
+		System.out.println("End calling Services  ... ");
+		return udt;
 		
 	}
 

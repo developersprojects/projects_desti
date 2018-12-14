@@ -21,6 +21,8 @@ import com.helptree.general.dto.UserDto;
 import com.helptree.general.dto.UserMasterDto;
 import com.helptree.general.services.GeneralService;
 
+import net.minidev.json.JSONArray;
+
 @RestController
 @RequestMapping("/rest/general")
 public class LoginController {
@@ -36,17 +38,24 @@ public class LoginController {
 	
 	
 	
+	
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	
+	
 	@PostMapping("/register/validate")
 	public UserMasterDto registerUser(@RequestBody UserMasterDto userMaster) {
 		
-		return generalService.registerUser(userMaster);
+		System.out.println("called the post");
+		
+	//	UserMasterDto udt=generalService.registerUser(userMaster);
+		
+		
+		UserMasterDto udt= restTemplate.postForObject("http://db-service/rest/user/add",userMaster, UserMasterDto.class);
+		return udt;
 	}
 	
-	
-	
-	
-	
-
 	@PostMapping("/login/validate")
 	public boolean login(@RequestBody LoginDto logindto, HttpSession session) {
 
